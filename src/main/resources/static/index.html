@@ -39,8 +39,8 @@ and open the template in the editor.
         <div>
             <FONT FACE="centuri" SIZE=5 COLOR="gray">
             Author </FONT>
-            <input id="nombre" type="text" name="firstname">
-            <button type="button" onclick="Module.setActualizar(document.getElementById('nombre'))">Get blueprints!</button>
+            <input id="nombre" type="text" name="firstname" value="">
+            <button type="button" onclick="module.setActualizar(document.getElementById('nombre').value)">Get blueprints!</button>
         </div>
         <br/>
         <br/>
@@ -65,9 +65,8 @@ and open the template in the editor.
                     background-color: #dddddd;
                 }
             </style>
-        </head>
-        <body>
-
+ 
+        
             <table>
                 <tr>
                     <th>Blueprint name</th>
