@@ -33,8 +33,9 @@ var module = (function () {
                     return valor+value.tamano;
                 }
                 );
-                $("table").append(lista1);
-                $("Total de puntos").text(+ adicion);
+        $("#table tbody").append(lista2);
+//                $("table").append(lista1);
+//                $("Total de puntos").text(+ adicion);
             }
             );
         }
