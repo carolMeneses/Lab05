@@ -26,17 +26,19 @@ var module = (function () {
                 );
                 //otro 'map', que tome cada uno de estos elementos, y a través de jQuery agregue un elemento <tr> (con los respectvos <td>)
                 var lista2 = lista1.map(function (valor) {
-                    return "<tr><td>" + valor.name + "</td>\n\<td>" + valor.tamano + "</td></tr>";
+//                    console.log("<tr><td>" + valor.name + "</td><td>" + valor.tamano + "</td></tr>");
+//                    var boton= " <button type="button" class="delete-row">Delete Row</button>"
+                    return "<tr><td>" + valor.name + "</td><td>" + valor.tamano +"</td><td> <button type='button'>open </buttom>\n\</td></tr>";
                 });
+                
                 // aplique un 'reduce' que calcule el número de puntos. Con este valor, use jQuery para actualizar el campo correspondiente
                 var adicion = lista1.reduce(function (valor, value) {
-
                     return valor + value.tamano;
                 }
-
                 );
-                $("#table tbody").append(lista2);
-//                $("table").append(lista1);
+        
+                console.log(lista2);
+                $("table tbody").append(lista2);
 //                $("Total de puntos").text(+ adicion);
             }
             );

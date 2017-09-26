@@ -50,6 +50,10 @@ and open the template in the editor.
             <div >
 
                 <style >
+                     #myCanvas{
+                        float: right;
+                        align-content: right;
+                    }
                     table {
                         font-family: arial, sans-serif;
                         border-collapse: collapse;
@@ -66,33 +70,26 @@ and open the template in the editor.
                     tr:nth-child(even) {
                         background-color: #dddddd;
                     }
-                   #myCanvas{
-                        float: right;
-                        align-content: right;
-                    }
+                  
                 </style>
 
-           
-                <table id="table" >
-                    <tr>
-                        <th>Blueprint name</th>
-                        <th>Number of points</th>
-                        <th>open</th>
-                    </tr>
-                    <tr>
+                <div>
+                    <canvas id="myCanvas" width="400" height="500" style="border:5px solid #000000;"></canvas>
+                </div>
+                <div>
+                    <table id="table" >
+                        <tr>
+                            <th>Blueprint name</th>
+                            <th>Number of points</th>
+                            <th>open</th>
+                        </tr>
 
-                        <!--                    <td>House</td>
-                                            <td>233</td>-->
-                    <tbody>
-                    </tbody>
-                </table>
+                    </table>
+                </div>
 
            
      
-        <canvas id="myCanvas" width="400" height="500" style="border:5px solid #000000;">
-
-
-        </canvas>
+       
  </div>
         
 </body>
