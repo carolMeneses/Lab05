@@ -16,11 +16,11 @@ and open the template in the editor.
 
         <script src="/webjars/jquery/jquery.min.js"></script>
         <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        
-<!--         importación de los dos nuevos módulos-->
+
+        <!--         importación de los dos nuevos módulos-->
         <script src="js/apimock.js"></script>
         <script src="js/app.js"></script>
-        
+
         <link rel="stylesheet"
               href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
@@ -45,45 +45,55 @@ and open the template in the editor.
         <br/>
         <br/>
         <br/>
+       
+         
+            <div >
 
-        <div>
+                <style >
+                    table {
+                        font-family: arial, sans-serif;
+                        border-collapse: collapse;
+                        width: 20%;
 
-            <style>
-                table {
-                    font-family: arial, sans-serif;
-                    border-collapse: collapse;
-                    width: 40%;
-                }
+                    }
 
-                td, th {
-                    border: 1px solid #dddddd;
-                    text-align: left;
-                    padding: 8px;
-                }
+                    td, th {
+                        border: 1px solid #dddddd;
+                        text-align: left;
+                        padding: 8px;
+                    }
 
-                tr:nth-child(even) {
-                    background-color: #dddddd;
-                }
-            </style>
- 
+                    tr:nth-child(even) {
+                        background-color: #dddddd;
+                    }
+                   #myCanvas{
+                        float: right;
+                        align-content: right;
+                    }
+                </style>
+
+           
+                <table id="table" >
+                    <tr>
+                        <th>Blueprint name</th>
+                        <th>Number of points</th>
+                        <th>open</th>
+                    </tr>
+                    <tr>
+
+                        <!--                    <td>House</td>
+                                            <td>233</td>-->
+                    <tbody>
+                    </tbody>
+                </table>
+
+           
+     
+        <canvas id="myCanvas" width="400" height="500" style="border:5px solid #000000;">
+
+
+        </canvas>
+ </div>
         
-            <table id="table">
-                <tr>
-                    <th>Blueprint name</th>
-                    <th>Number of points</th>
-                    <th>open</th>
-                </tr>
-                <tr>
-
-<!--                    <td>House</td>
-                    <td>233</td>-->
-                <tbody>
-                </tbody>
-
-
-
-            </table>
-
-    </div>
 </body>
 </html>

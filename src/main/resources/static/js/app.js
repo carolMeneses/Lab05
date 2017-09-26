@@ -9,6 +9,7 @@ var module = (function () {
 // code
     var nombre;
     var nom_pun;
+    var listaAutor;
 
     return{
         setBlueprintsByName: function (authname) {
@@ -29,17 +30,30 @@ var module = (function () {
                 });
                 // aplique un 'reduce' que calcule el número de puntos. Con este valor, use jQuery para actualizar el campo correspondiente
                 var adicion = lista1.reduce(function (valor, value) {
-                    
-                    return valor+value.tamano;
+
+                    return valor + value.tamano;
                 }
+
                 );
-        $("#table tbody").append(lista2);
+                $("#table tbody").append(lista2);
 //                $("table").append(lista1);
 //                $("Total de puntos").text(+ adicion);
             }
             );
+        },
+        setDibujar: function (autor1, nombre1) {
+
+            apimock.getBlueprintsByNameAndAuthor(autor1, nombre1, function (lista1) {
+                listaAutor = lista1;
+                //retornar lista con puntos;
+                var puntos = listaAutor.map(function (bluep) {
+                    return{"puntos": bluep.points};
+                }
+                );
+            }
+            );
         }
-    };
+    }
 })();
 
 
