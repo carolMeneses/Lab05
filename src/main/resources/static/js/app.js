@@ -6,6 +6,8 @@
 
 /* global apimock */
 /* global apimock */
+
+var prueba;
 var api= apimock;
 //CREAR MODULO
 var module = (function () {
@@ -47,30 +49,32 @@ var module = (function () {
             }
             );
         },
-        
         setDibujar: function (autor1, nombre1) {
-            console.log(autor1,nombre1);
+            console.log(autor1, nombre1);
             api.getBlueprintsByNameAndAuthor(autor1, nombre1, function (lista1) {
                 listaAutor = lista1;
-                var puntos=listaAutor.points;
-                //retornar lista con puntos;
-                //var puntos = listaAutor.map(function (bluep) {
-                  for (i = 0; i < listaAutor.points.size - 1; i++) {
-                      var x=puntos
+                prueba = lista1;
+
+                for (i = 0; i < listaAutor.points.length - 1; i++) {
+                    var x = listaAutor.points[i].x;
+                    var y = listaAutor.points[i].y;
+                    var x2 = listaAutor.points[i + 1].x;
+                    var y2 = listaAutor.points[i + 1].y;
+                    console.log(listaAutor.points[i].x);
                     canvas = document.getElementById("canvas");
                     ctx = canvas.getContext("2d");
-                    ctx.fillStyle = "green";
+                    ctx.fillStyle = "fuchsia";
                     ctx.fillRect(x, y, x2, y2);
                     ctx.fill();
                 }
-                   // return{"puntos": bluep.points};
-              //  }
-                );
-            }
-            );
-        }
+                //return{};
+                //
+                // }  
+            });
     }
-})();
-
+        
+    
+    
+}})();
 
 
