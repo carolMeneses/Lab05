@@ -52,10 +52,19 @@ var module = (function () {
             console.log(autor1,nombre1);
             api.getBlueprintsByNameAndAuthor(autor1, nombre1, function (lista1) {
                 listaAutor = lista1;
+                var puntos=listaAutor.points;
                 //retornar lista con puntos;
-                var puntos = listaAutor.map(function (bluep) {
-                    return{"puntos": bluep.points};
+                //var puntos = listaAutor.map(function (bluep) {
+                  for (i = 0; i < listaAutor.points.size - 1; i++) {
+                      var x=puntos
+                    canvas = document.getElementById("canvas");
+                    ctx = canvas.getContext("2d");
+                    ctx.fillStyle = "green";
+                    ctx.fillRect(x, y, x2, y2);
+                    ctx.fill();
                 }
+                   // return{"puntos": bluep.points};
+              //  }
                 );
             }
             );
