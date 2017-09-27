@@ -63,7 +63,7 @@ var module = (function () {
                     console.log(listaAutor.points[i].x);
                     canvas = document.getElementById("canvas");
                     ctx = canvas.getContext("2d");
-                    ctx.fillStyle = "fuchsia";
+                    ctx.fillStyle = "#0080FF";
                     ctx.fillRect(x, y, x2, y2);
                     ctx.fill();
                 }

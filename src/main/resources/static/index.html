@@ -26,10 +26,10 @@ and open the template in the editor.
               href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
 
-    <body>
-
-        <div>
-            <FONT FACE="Elephant" SIZE=6 COLOR="Blue">
+    <body style="background-color:#08298A;" >
+     
+        <div align="center">
+            <FONT FACE="Elephant" SIZE=6 COLOR="white" >
             Blueprints </FONT>
             <!--            <h1 style=""> Blueprints </h1>-->
 
@@ -37,8 +37,8 @@ and open the template in the editor.
         <br/>
         <br/>
         <br/>
-        <div>
-            <FONT FACE="centuri" SIZE=5 COLOR="gray">
+        <div >
+            <FONT FACE="centuri" SIZE=5 COLOR="white">
             Author </FONT>
             <input id="nombre" type="text" name="firstname" value="">
             <button type="button" onclick="module.setActualizar(document.getElementById('nombre').value)">Get blueprints!</button>
@@ -51,16 +51,19 @@ and open the template in the editor.
             <div >
 
                 <style >
-                     #canvas{
+                     canvas{
                         float: right;
                         align-content: right;
                         color: #8A0868;
+                        background-color:#dddddd;
+                                
                         
                     }
                     table {
                         font-family: arial, sans-serif;
                         border-collapse: collapse;
-                        width: 20%;
+                        width: 40%;
+                        background-color:white;
                     }
 
                     td, th {
@@ -76,7 +79,7 @@ and open the template in the editor.
                 </style>
 
                 <div>
-                    <canvas id="canvas" width="400" height="500" style="border:5px solid #000000;"></canvas>
+                    <canvas id="canvas" width="400" height="500" style="border:5px solid #0080FF;"></canvas>
                 </div>
                 <div>
                     <table id="table" >
