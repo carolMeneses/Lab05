@@ -4,12 +4,16 @@
  * and open the template in the editor.
  */
 
+/* global apimock */
+/* global apimock */
+var api= apimock;
 //CREAR MODULO
 var module = (function () {
 // code
     var nombre;
     var nom_pun;
     var listaAutor;
+    var nombre_Plano;
 
     return{
         setBlueprintsByName: function (authname) {
@@ -17,7 +21,7 @@ var module = (function () {
         },
         setActualizar: function (autor) {
             module.setBlueprintsByName(autor);
-            apimock.getBlueprintsByAuthor(nombre, function (lista) {
+            api.getBlueprintsByAuthor(nombre, function (lista) {
                 nom_pun = lista;
                 // listado de los planos, y le aplique una función 'map' convertir json
                 var lista1 = nom_pun.map(function (blue) {
@@ -27,8 +31,8 @@ var module = (function () {
                 //otro 'map', que tome cada uno de estos elementos, y a través de jQuery agregue un elemento <tr> (con los respectvos <td>)
                 var lista2 = lista1.map(function (valor) {
 //                    console.log("<tr><td>" + valor.name + "</td><td>" + valor.tamano + "</td></tr>");
-//                    var boton= " <button type="button" class="delete-row">Delete Row</button>"
-                    return "<tr><td>" + valor.name + "</td><td>" + valor.tamano +"</td><td> <button type='button'>open </buttom>\n\</td></tr>";
+                     var boton= "<button type='button' onclick=\"module.setDibujar(\'"+nombre+"\',\'"+valor.name+"\')\">open </buttom>"
+                    return "<tr><td id=''>" + valor.name + "</td><td>" + valor.tamano +"</td><td>"+boton+"</td></tr>";
                 });
                 
                 // aplique un 'reduce' que calcule el número de puntos. Con este valor, use jQuery para actualizar el campo correspondiente
@@ -43,9 +47,10 @@ var module = (function () {
             }
             );
         },
+        
         setDibujar: function (autor1, nombre1) {
-
-            apimock.getBlueprintsByNameAndAuthor(autor1, nombre1, function (lista1) {
+            console.log(autor1,nombre1);
+            api.getBlueprintsByNameAndAuthor(autor1, nombre1, function (lista1) {
                 listaAutor = lista1;
                 //retornar lista con puntos;
                 var puntos = listaAutor.map(function (bluep) {
