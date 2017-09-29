@@ -16,8 +16,28 @@ var module = (function () {
     var nom_pun;
     var listaAutor;
     var nombre_Plano;
+    //var canvas = document.getElementById("canvas");
+            
 
     return{
+        //function to initialize application
+        //function to initialize application
+        init: function () {
+            console.info('initialized');
+            if (window.PointerEvent) {
+                canvas.addEventListener("pointerdown",
+                        function (event) {
+                            alert('pointerdown at ' + event.pageX + ',' + event.pageY);
+
+                        });
+            } else {
+                canvas.addEventListener("mousedown", function (event) {
+                    alert('mousedown at ' + event.clientX + ',' + event.clientY);
+
+                }
+                );
+            }
+        },
         setBlueprintsByName: function (authname) {
             nombre = authname;
         },
@@ -33,16 +53,16 @@ var module = (function () {
                 //otro 'map', que tome cada uno de estos elementos, y a través de jQuery agregue un elemento <tr> (con los respectvos <td>)
                 var lista2 = lista1.map(function (valor) {
 //                    console.log("<tr><td>" + valor.name + "</td><td>" + valor.tamano + "</td></tr>");
-                     var boton= "<button type='button' onclick=\"module.setDibujar(\'"+nombre+"\',\'"+valor.name+"\')\">open </buttom>"
-                    return "<tr><td id=''>" + valor.name + "</td><td>" + valor.tamano +"</td><td>"+boton+"</td></tr>";
+                    var boton = "<button type='button' onclick=\"module.setDibujar(\'" + nombre + "\',\'" + valor.name + "\')\">open </buttom>"
+                    return "<tr><td id=''>" + valor.name + "</td><td>" + valor.tamano + "</td><td>" + boton + "</td></tr>";
                 });
-                
+
                 // aplique un 'reduce' que calcule el número de puntos. Con este valor, use jQuery para actualizar el campo correspondiente
                 var adicion = lista1.reduce(function (valor, value) {
                     return valor + value.tamano;
                 }
                 );
-        
+
                 console.log(lista2);
                 $("table tbody").append(lista2);
 //                $("Total de puntos").text(+ adicion);
@@ -61,20 +81,23 @@ var module = (function () {
                     var x2 = listaAutor.points[i + 1].x;
                     var y2 = listaAutor.points[i + 1].y;
                     console.log(listaAutor.points[i].x);
-                    canvas = document.getElementById("canvas");
-                    ctx = canvas.getContext("2d");
+
+            ctx = canvas.getContext("2d");
                     ctx.fillStyle = "#0080FF";
-                    ctx.fillRect(x, y, x2, y2);
-                    ctx.fill();
+                    canvas = document.getElementById("canvas");
+                    ctx.moveTo(x, y);
+                    ctx.lineTo(x2, y2);
+                    ctx.stroke();
                 }
                 //return{};
                 //
                 // }  
             });
-    }
-        
-    
-    
-}})();
+        }
+
+
+
+    };
+})();
 
 
