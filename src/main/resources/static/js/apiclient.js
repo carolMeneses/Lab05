@@ -6,20 +6,21 @@
 
 
 //módulo provisto (apimock.js)
-apiClient= (function () {
+apiclient= (function () {
 
 
 
     return {
         getBlueprintsByAuthor: function (authname, callback) {
             callback(
-                   // $.get("/blueprints", function (authname) {
-                       // $(".result").html(authname);
-                        //alert("Load was performed.");
-                   // })
-                  //  );
-                  console.log("entro")
-                          );
+                    $.get("/blueprints", function (authname) {
+                        $(".result").html(authname);
+                        console.log(authname);
+                        console($(".result").html(authname));
+                    })
+                    );
+                  console.log("entro");
+                          
         }
 //        getBlueprintsByNameAndAuthor: function (authname, bpname, callback) {
 //

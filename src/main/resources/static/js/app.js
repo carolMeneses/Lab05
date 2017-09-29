@@ -5,10 +5,10 @@
  */
 
 /* global apimock */
-/* global apimock */
+/* global apiclient */
 
 var prueba;
-var api= apimock;
+var api= apiclient;
 //CREAR MODULO
 var module = (function () {
 // code
