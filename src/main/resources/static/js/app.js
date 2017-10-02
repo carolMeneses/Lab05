@@ -16,6 +16,9 @@ var module = (function () {
     var nom_pun;
     var listaAutor;
     var nombre_Plano;
+    var nuevosPuntos;
+    var autorblue;
+    var nomb;
 //    var canvas = document.getElementById("canvas");
 //    var canvas = document.getElementById("canvas");
 //    var ctx = canvas.getContext("2d");
@@ -24,7 +27,6 @@ var module = (function () {
 
     return{
         //function to initialize application
-        //function to initialize application
         init: function () {
    
             console.info('initialized');
@@ -32,7 +34,12 @@ var module = (function () {
                 canvas.addEventListener("pointerdown",
                         function (event) {
                             alert('pointerdown at ' + event.pageX + ',' + event.pageY);
-
+                            nuevosPuntos={"x":event.pageX,"y":event.pageY};
+                              console.log(autorblue);
+                            console.log(nomb);
+                            console.log(nuevosPuntos);
+                            module.setDibujar1( autorblue,nomb,nuevosPuntos);
+                          
                         });
             } else {
                 canvas.addEventListener("mousedown", function (event) {
@@ -80,6 +87,36 @@ var module = (function () {
             console.log(autor1, nombre1);
             api.getBlueprintsByNameAndAuthor(autor1, nombre1, function (lista1) {
                 listaAutor = lista1;
+                prueba = lista1;
+                autorblue=autor1;
+                nomb=nombre1;
+                var canvas = document.getElementById("canvas");
+                ctx = canvas.getContext("2d");
+                canvas.width=canvas.width;
+                ctx.fillStyle = "#0080FF";
+                for (i = 0; i < listaAutor.points.length - 1; i++) {
+                    var x = listaAutor.points[i].x;
+                    var y = listaAutor.points[i].y;
+                    var x2 = listaAutor.points[i + 1].x;
+                    var y2 = listaAutor.points[i + 1].y;
+                    console.log(listaAutor.points[i].x);
+                   
+
+                    ctx.moveTo(x, y);
+                    ctx.lineTo(x2, y2);
+                    ctx.stroke();
+                }
+           
+            });
+        },
+             setDibujar1: function (auto, nomb,nuevosP) {
+
+           
+            api.getBlueprintsByNameAndAuthor(auto, nomb, function (lista1) {
+                listaAutor = lista1;
+                listaAutor.points.push(nuevosP);
+                 console.log(nuevosP);
+                 console.log(listaAutor.points);
                 prueba = lista1;
                 var canvas = document.getElementById("canvas");
                 ctx = canvas.getContext("2d");
