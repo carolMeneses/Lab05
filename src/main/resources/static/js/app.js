@@ -16,13 +16,17 @@ var module = (function () {
     var nom_pun;
     var listaAutor;
     var nombre_Plano;
-    //var canvas = document.getElementById("canvas");
-
+//    var canvas = document.getElementById("canvas");
+//    var canvas = document.getElementById("canvas");
+//    var ctx = canvas.getContext("2d");
+//    canvas.width = canvas.width;
+//    ctx.fillStyle = "#0080FF";
 
     return{
         //function to initialize application
         //function to initialize application
         init: function () {
+   
             console.info('initialized');
             if (window.PointerEvent) {
                 canvas.addEventListener("pointerdown",
@@ -52,7 +56,7 @@ var module = (function () {
                 );
                 //otro 'map', que tome cada uno de estos elementos, y a través de jQuery agregue un elemento <tr> (con los respectvos <td>)
                 var lista2 = lista1.map(function (valor) {
-//                    console.log("<tr><td>" + valor.name + "</td><td>" + valor.tamano + "</td></tr>");
+//                   
                     
                     var boton = "<button type='button' onclick=\"module.setDibujar(\'" + nombre + "\',\'" + valor.name + "\')\">open </buttom>"
                     return "<tr  class='temp'><td id=''>" + valor.name + "</td><td>" + valor.tamano + "</td><td>" + boton + "</td></tr>";
@@ -80,8 +84,6 @@ var module = (function () {
                 var canvas = document.getElementById("canvas");
                 ctx = canvas.getContext("2d");
                 canvas.width=canvas.width;
-                // ctx.width = "400";
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.fillStyle = "#0080FF";
                 for (i = 0; i < listaAutor.points.length - 1; i++) {
                     var x = listaAutor.points[i].x;
@@ -95,9 +97,7 @@ var module = (function () {
                     ctx.lineTo(x2, y2);
                     ctx.stroke();
                 }
-                //return{};
-                //
-                // }  
+           
             });
         }
 
