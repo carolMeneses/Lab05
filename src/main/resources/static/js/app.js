@@ -8,7 +8,7 @@
 /* global apiclient */
 
 var prueba;
-var api= apiclient;
+var api = apiclient;
 //CREAR MODULO
 var module = (function () {
 // code
@@ -17,7 +17,7 @@ var module = (function () {
     var listaAutor;
     var nombre_Plano;
     //var canvas = document.getElementById("canvas");
-            
+
 
     return{
         //function to initialize application
@@ -53,8 +53,9 @@ var module = (function () {
                 //otro 'map', que tome cada uno de estos elementos, y a través de jQuery agregue un elemento <tr> (con los respectvos <td>)
                 var lista2 = lista1.map(function (valor) {
 //                    console.log("<tr><td>" + valor.name + "</td><td>" + valor.tamano + "</td></tr>");
+                    
                     var boton = "<button type='button' onclick=\"module.setDibujar(\'" + nombre + "\',\'" + valor.name + "\')\">open </buttom>"
-                    return "<tr><td id=''>" + valor.name + "</td><td>" + valor.tamano + "</td><td>" + boton + "</td></tr>";
+                    return "<tr  class='temp'><td id=''>" + valor.name + "</td><td>" + valor.tamano + "</td><td>" + boton + "</td></tr>";
                 });
 
                 // aplique un 'reduce' que calcule el número de puntos. Con este valor, use jQuery para actualizar el campo correspondiente
@@ -64,27 +65,32 @@ var module = (function () {
                 );
 
                 console.log(lista2);
+                $(".temp").remove();               
                 $("table tbody").append(lista2);
 //                $("Total de puntos").text(+ adicion);
             }
             );
         },
         setDibujar: function (autor1, nombre1) {
+
             console.log(autor1, nombre1);
             api.getBlueprintsByNameAndAuthor(autor1, nombre1, function (lista1) {
                 listaAutor = lista1;
                 prueba = lista1;
-
+                var canvas = document.getElementById("canvas");
+                ctx = canvas.getContext("2d");
+                canvas.width=canvas.width;
+                // ctx.width = "400";
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "#0080FF";
                 for (i = 0; i < listaAutor.points.length - 1; i++) {
                     var x = listaAutor.points[i].x;
                     var y = listaAutor.points[i].y;
                     var x2 = listaAutor.points[i + 1].x;
                     var y2 = listaAutor.points[i + 1].y;
                     console.log(listaAutor.points[i].x);
+                   
 
-            ctx = canvas.getContext("2d");
-                    ctx.fillStyle = "#0080FF";
-                    canvas = document.getElementById("canvas");
                     ctx.moveTo(x, y);
                     ctx.lineTo(x2, y2);
                     ctx.stroke();

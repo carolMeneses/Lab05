@@ -5,31 +5,22 @@
  */
 
 
-//módulo provisto (apimock.js)
+//mÃ³dulo provisto (apimock.js)
 apiclient= (function () {
 
 
 
     return {
         getBlueprintsByAuthor: function (authname, callback) {
-            callback(
-                    $.get("/blueprints", function (authname) {
-                        $(".result").html(authname);
-                        console.log(authname);
-                        console($(".result").html(authname));
-                    })
-                    );
-                  console.log("entro");
+          
+                    $.get("/blueprints/"+authname, callback);
+        },
                           
+        
+        getBlueprintsByNameAndAuthor: function (authname, bpname, callback) {
+
+                 $.get("/blueprints/"+authname+"/"+bpname, callback);
         }
-//        getBlueprintsByNameAndAuthor: function (authname, bpname, callback) {
-//
-//            callback(
-//                    mockdata[authname].find(function (e) {
-//                return e.name === bpname
-//            })
-//                    );
-//        }
-    }
+    };
 
 })();
