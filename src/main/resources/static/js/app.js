@@ -34,11 +34,12 @@ var module = (function () {
                 canvas.addEventListener("pointerdown",
                         function (event) {
                             alert('pointerdown at ' + event.pageX + ',' + event.pageY);
-                            nuevosPuntos={"x":event.pageX,"y":event.pageY};
+                            var x={"x":event.pageX-960,"y":event.pageY-203};
+                             listaAutor.points.push(x);
                               console.log(autorblue);
                             console.log(nomb);
-                            console.log(nuevosPuntos);
-                            module.setDibujar1( autorblue,nomb,nuevosPuntos);
+                            console.log(listaAutor);
+                            module.setDibujar( autorblue,nomb);
                           
                         });
             } else {
@@ -86,7 +87,8 @@ var module = (function () {
 
             console.log(autor1, nombre1);
             api.getBlueprintsByNameAndAuthor(autor1, nombre1, function (lista1) {
-                listaAutor = lista1;
+                if(listaAutor==null){
+                listaAutor = lista1;}
                 prueba = lista1;
                 autorblue=autor1;
                 nomb=nombre1;
@@ -109,34 +111,34 @@ var module = (function () {
            
             });
         },
-             setDibujar1: function (auto, nomb,nuevosP) {
-
-           
-            api.getBlueprintsByNameAndAuthor(auto, nomb, function (lista1) {
-                listaAutor = lista1;
-                listaAutor.points.push(nuevosP);
-                 console.log(nuevosP);
-                 console.log(listaAutor.points);
-                prueba = lista1;
-                var canvas = document.getElementById("canvas");
-                ctx = canvas.getContext("2d");
-                canvas.width=canvas.width;
-                ctx.fillStyle = "#0080FF";
-                for (i = 0; i < listaAutor.points.length - 1; i++) {
-                    var x = listaAutor.points[i].x;
-                    var y = listaAutor.points[i].y;
-                    var x2 = listaAutor.points[i + 1].x;
-                    var y2 = listaAutor.points[i + 1].y;
-                    console.log(listaAutor.points[i].x);
-                   
-
-                    ctx.moveTo(x, y);
-                    ctx.lineTo(x2, y2);
-                    ctx.stroke();
-                }
-           
-            });
-        }
+//             setDibujar1: function (auto, nomb,nuevosP) {
+//
+//           
+//            api.getBlueprintsByNameAndAuthor(auto, nomb, function (lista1) {
+//              //  listaAutor = lista1;
+//                listaAutor.points.push(nuevosP);
+//                 console.log(nuevosP);
+//                 console.log(listaAutor.points);
+//              //  prueba = lista1;
+//                var canvas = document.getElementById("canvas");
+//                ctx = canvas.getContext("2d");
+//                canvas.width=canvas.width;
+//                ctx.fillStyle = "#0080FF";
+//                for (i = 0; i < listaAutor.points.length - 1; i++) {
+//                    var x = listaAutor.points[i].x;
+//                    var y = listaAutor.points[i].y;
+//                    var x2 = listaAutor.points[i + 1].x;
+//                    var y2 = listaAutor.points[i + 1].y;
+//                    console.log(listaAutor.points[i].x);
+//                   
+//
+//                    ctx.moveTo(x, y);
+//                    ctx.lineTo(x2, y2);
+//                    ctx.stroke();
+//                }
+//           
+//            });
+//        }
 
 
 
