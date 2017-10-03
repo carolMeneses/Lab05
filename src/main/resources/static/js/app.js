@@ -135,19 +135,15 @@ var module = (function () {
                     ctx.stroke();
                 }
 
-        }
+        },
     
         
-//        save: function (autor1, nombre1) {
-//
-//            return $.ajax({
-//                url: "/blueprint/",
-//                type: 'PUT',
-//                data: '{"prop1":1000,"prop2":"papas"}',
-//                contentType: "application/json"
-//            });
-//
-//        }
+        save: function (autorblue, nomb,nuevosPuntos) {
+
+          putActualiza(autorblue, nomb,nuevosPuntos);
+
+        }
+
 
 
 
