@@ -22,6 +22,7 @@ apiclient = (function () {
        putActualiza: function (puntos, autor1, nombre1) {
 
             //private functions
+            console.log(puntos);
 
             var request1Response = "";
             var request2Response = "";

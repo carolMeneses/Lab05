@@ -91,7 +91,7 @@ public class BlueprintAPIController {
             Set<Blueprint> blueprints = bp.getAllBlueprints();
            
             
-            
+           
                 for (Blueprint b : blueprints) {
                 if (b.equals(blue)) {
                     b.addPoint(p);
