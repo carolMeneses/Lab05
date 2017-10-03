@@ -88,16 +88,16 @@ public class BlueprintAPIController {
     public ResponseEntity<?> PuttRecursoSet(@PathVariable Blueprint blue, @RequestBody Point p) {
         try {
 
-          //  Set<Blueprint> blueprints = bp.getAllBlueprints();
+            Set<Blueprint> blueprints = bp.getAllBlueprints();
            
             
             
-//                for (Blueprint b : blueprints) {
-//                if (b.equals(blue)) {
-//                    b.addPoint(p);
-//                }
+                for (Blueprint b : blueprints) {
+                if (b.equals(blue)) {
+                    b.addPoint(p);
+                }
 
-           // }
+          }
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (Exception ex) {
             Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, ex);
