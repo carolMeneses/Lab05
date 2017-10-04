@@ -19,19 +19,19 @@ apiclient = (function () {
 
             $.get("/blueprints/" + authname + "/" + bpname, callback);
         },
-       putActualiza: function (puntos, autor1, nombre1) {
+       putActualiza: function (blueprint, nuevosPuntos,autor1, nombre1) {
 
             //private functions
-            console.log(puntos);
+            console.log(nuevosPuntos);
 
             var request1Response = "";
             var request2Response = "";
             putForumPost = function () {
 
                 var putPromise = $.ajax({
-                    url: "/blueprints/",
+                    url: "/blueprints/"+blueprint,
                     type: 'PUT',
-                    data: 'puntos',
+                    data: 'nuevosPuntos',
                     contentType: "application/json"
                 });
                 putPromise.then(

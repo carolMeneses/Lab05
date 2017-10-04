@@ -19,6 +19,7 @@ var nombre;
         var nuevosPuntos;
         var autorblue;
         var nomb;
+        var tamano;
 //    var canvas = document.getElementById("canvas");
 //    var canvas = document.getElementById("canvas");
 //    var ctx = canvas.getContext("2d");
@@ -28,7 +29,7 @@ var nombre;
         return{
         //function to initialize application
         init: function () {
-
+       
         console.info('initialized');
                 if (window.PointerEvent) {
         canvas.addEventListener("pointerdown",
@@ -36,6 +37,7 @@ var nombre;
                 alert('pointerdown at ' + event.pageX + ',' + event.pageY);
                         var x = {"x": event.pageX - 960, "y": event.pageY - 203};
                         listaAutor.points.push(x);
+                        
                         module.setDibujar1(autorblue, nomb);
                 });
         } else {
@@ -69,7 +71,7 @@ var nombre;
                                 return valor + value.tamano;
                                 }
                                 );
-                                console.log(lista2);
+                               
                                 $(".temp").remove();
                                 $("table tbody").append(lista2);
 //                $("Total de puntos").text(+ adicion);
@@ -129,10 +131,11 @@ var nombre;
                 },
                 save:function () {
                
-                        api.putActualiza(autorblue, nomb, nuevosPuntos);
+                        api.putActualiza(listaAutor,listaAutor.points,autorblue, nomb);
                         api.getBlueprintsByNameAndAuthor(autorblue, nomb, function (lista1) {
 
                                 listaAutor = lista1;
+                                console.log(listaAutor);
                                 
                         });
                 }
