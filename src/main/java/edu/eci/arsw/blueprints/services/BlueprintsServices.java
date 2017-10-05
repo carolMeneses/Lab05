@@ -66,8 +66,8 @@ public class BlueprintsServices {
 //     public String getBlueprin(String author,String name) throws BlueprintNotFoundException{
 //        return bpp.getBlueprin(author, name);
 //    }
-   public void actualizar(Blueprint b,Point p) throws BlueprintNotFoundException{
-       bpp.actualizar(b,p);
+   public void actualizar(Blueprint b) throws BlueprintNotFoundException{
+       bpp.actualizar(b);
     
     
 }

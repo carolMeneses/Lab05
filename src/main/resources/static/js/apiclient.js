@@ -12,11 +12,11 @@ apiclient = (function () {
 
     var request1Response = "";
     var request2Response = "";
-    putForumPost = function (blueprint) {
+    putForumPost = function (blueprint,autor1,nombre1) {
         console.log(blueprint);
 
         var putPromise = $.ajax({
-            url: "/blueprints/"+blueprint,
+            url: "/blueprints/"+blueprint+"/"+autor1+"/"+nombre1,
             type: 'PUT',
             data: JSON.stringify(blueprint),
             contentType: "application/json"

@@ -104,14 +104,20 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence {
 //        return "hola";
 //    }
     @Override
-    public void actualizar(Blueprint b, Point p) {
+    public void actualizar(Blueprint b) {
+             System.out.print("entro a uno");
         Collection<Blueprint> blue = blueprints.values();
-
+        String autor=b.getAuthor();
+        String nombre=b.getName();
         for (Blueprint bprint : blue) {
-            if (bprint.equals(b)) {
-                bprint.addPoint(p);
+                 
+            if (bprint.getAuthor().equals(autor)&& bprint.getName().equals(nombre)) {
+                blueprints.replace(new Tuple<>(autor, nombre), bprint, b);
+                System.out.println(bprint);
+                System.out.println(b);
             }
         }
+        
 
     }
 }

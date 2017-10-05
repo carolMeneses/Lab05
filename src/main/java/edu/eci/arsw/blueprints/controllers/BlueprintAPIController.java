@@ -84,21 +84,24 @@ public class BlueprintAPIController {
 
     }
     
-    @RequestMapping(path = "/{blueprint}", method = RequestMethod.PUT)
-    public ResponseEntity<?> PuttRecursoSet(@PathVariable Blueprint blue) {
+    @RequestMapping(path = "/{blueprint}/{author}/{bpname}", method = RequestMethod.PUT)
+    public ResponseEntity<?> PuttRecursoSet(@RequestBody Blueprint blue) {
         try {
-            Blueprint bl=bp.getBlueprint(blue.getAuthor(),blue.getName());
-            Set<Blueprint> blueprints = bp.getAllBlueprints();
+            bp.actualizar(blue);
+        
+            //Set<Blueprint> blueprints = bp.getAllBlueprints();
            
             
+//           
+//                for (Blueprint b : blueprints) {
+//                if (b.equals(bl)) {
+//                    b=blue;
+//                    System.out.print(b);
+//                    System.out.print("entro a uno");
+//                }
+//
+//          }
            
-                for (Blueprint b : blueprints) {
-                if (b.equals(bl)) {
-                    b=bl;
-                }
-
-          }
-                System.out.print("entro a put");
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (Exception ex) {
             Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, ex);
