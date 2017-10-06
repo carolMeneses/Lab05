@@ -72,10 +72,12 @@ public class BlueprintAPIController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> manejadorPostRecursoXX(@RequestBody Blueprint blueprint) {
+    @RequestMapping(method = RequestMethod.POST,value="/{author}")
+    public ResponseEntity<?> manejadorPostRecursoXX(@RequestBody Blueprint blue) {
+        System.out.print("ENTRO A POST");
         try {
-            bp.addNewBlueprint(blueprint);
+            bp.crearNuevoPlano(blue);
+            System.out.print("creo");
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (Exception ex) {
             Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, ex);
@@ -89,18 +91,6 @@ public class BlueprintAPIController {
         try {
             bp.actualizar(blue);
         
-            //Set<Blueprint> blueprints = bp.getAllBlueprints();
-           
-            
-//           
-//                for (Blueprint b : blueprints) {
-//                if (b.equals(bl)) {
-//                    b=blue;
-//                    System.out.print(b);
-//                    System.out.print("entro a uno");
-//                }
-//
-//          }
            
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (Exception ex) {
@@ -109,5 +99,17 @@ public class BlueprintAPIController {
         }
 
     }
+    @RequestMapping(path = "/{blueprint}/{author}/{bpname}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> deliteRecursoSet(@RequestBody Blueprint blue) {
+        try {
+            bp.eliminar(blue);
+        
+           
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        } catch (Exception ex) {
+            Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>("Error bla bla bla", HttpStatus.FORBIDDEN);
+        }
 
+    }
 }

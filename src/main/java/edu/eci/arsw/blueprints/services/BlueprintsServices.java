@@ -68,7 +68,11 @@ public class BlueprintsServices {
 //    }
    public void actualizar(Blueprint b) throws BlueprintNotFoundException{
        bpp.actualizar(b);
-    
-    
-}
+   }
+    public void eliminar(Blueprint b) throws BlueprintNotFoundException{
+       bpp.eliminar(b);
+   }
+      public void crearNuevoPlano(Blueprint b) {
+        bpp.crearNuevoPlano(b);
+    }
 }

@@ -105,19 +105,43 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence {
 //    }
     @Override
     public void actualizar(Blueprint b) {
-             System.out.print("entro a uno");
-        Collection<Blueprint> blue = blueprints.values();
-        String autor=b.getAuthor();
-        String nombre=b.getName();
-        for (Blueprint bprint : blue) {
-                 
-            if (bprint.getAuthor().equals(autor)&& bprint.getName().equals(nombre)) {
-                blueprints.replace(new Tuple<>(autor, nombre), bprint, b);
-                System.out.println(bprint);
-                System.out.println(b);
-            }
+        if (blueprints.containsKey(new Tuple<>(b.getAuthor(), b.getName()))) {
+            blueprints.replace(new Tuple<>(b.getAuthor(), b.getName()), b);
         }
-        
-
     }
+
+    @Override
+    public void crearNuevoPlano(Blueprint b) {
+        // Point p=new Point();
+        // List<Point> points=null;
+         
+        System.out.print("entro"+b.getAuthor());
+        blueprints.put(new Tuple<>(b.getAuthor(), b.getName()), b);
+    }
+
+//        Set<Tuple<String, String>> blue = blueprints.keySet();
+//        String autor=b.getAuthor();
+//        String nombre=b.getName();
+//        for (Tuple<String, String> bprint : blue) {
+//            
+//            String out=bprint.getElem1();
+//            String out1=bprint.getElem2();
+//            if (out.equals(autor)&& out1.equals(nombre)) {
+//                blueprints.remove(bprint, b);
+//                try {
+//                    saveBlueprint(b);
+//                } catch (BlueprintPersistenceException ex) {
+//                    Logger.getLogger(InMemoryBlueprintPersistence.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//                System.out.println(bprint);
+//                System.out.println(b);
+//            }
+//        }
+    @Override
+    public void eliminar(Blueprint b) {
+        if (blueprints.containsKey(new Tuple<>(b.getAuthor(), b.getName()))) {
+            blueprints.remove(new Tuple<>(b.getAuthor(), b.getName()));
+        }
+    }
+
 }

@@ -38,5 +38,7 @@ public interface BlueprintsPersistence {
      public Set<Blueprint> getBlueprintsByAuthor(String author);
 
     public void actualizar(Blueprint b);
+    public void eliminar(Blueprint b);
+     public void crearNuevoPlano(Blueprint b);
      
 }
